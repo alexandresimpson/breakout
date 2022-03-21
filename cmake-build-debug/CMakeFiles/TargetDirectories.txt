@@ -1,3 +1,0 @@
-C:/Users/gsimp/CLionProjects/breakout/cmake-build-debug/CMakeFiles/breakout.dir
-C:/Users/gsimp/CLionProjects/breakout/cmake-build-debug/CMakeFiles/edit_cache.dir
-C:/Users/gsimp/CLionProjects/breakout/cmake-build-debug/CMakeFiles/rebuild_cache.dir
