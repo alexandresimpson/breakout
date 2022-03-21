@@ -11,5 +11,5 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(raylib)
 
-add_executable(breakout main.cpp)
+add_executable(breakout main.cpp paddle.cpp ball.cpp ball.h window.h game.h game.cpp)
 target_link_libraries(breakout raylib)
