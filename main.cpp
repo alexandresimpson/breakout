@@ -1,11 +1,10 @@
 #include <iostream>
 #include "raylib.h"
-#include "paddle.h"
-#include "ball.h"
+
 #include "window.h"
 #include "game.h"
 #include "asset_loader.h"
-#include "play_area.h"
+
 
 void Update();
 void Draw();
@@ -17,9 +16,8 @@ int main() {
     InitWindow(screenWidth, screenHeight, "Breakout");
 
   LoadSpriteSheet("assets/sprites.png");
-  SetupBall();
-  SetupPaddle();
-  SetupBoard();
+  SetupGame();
+
 
   SetTargetFPS(60);
 
@@ -36,19 +34,12 @@ int main() {
 void Draw() {
     BeginDrawing();
     ClearBackground(BLACK);
-    if(GetState()==PLAY) {
-        DrawPlayArea();
-        DrawPaddle();
-        DrawBall();
-    }
+
     DrawGame();
     EndDrawing();
 }
 
 void Update() {
     UpdateGame();
-    if(GetState()==PLAY) {
-        UpdatePaddle();
-        UpdateBall();
-    }
+
 }

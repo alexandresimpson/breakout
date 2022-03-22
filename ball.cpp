@@ -16,7 +16,7 @@ float x_dir=0.5f;
 float y_dir=1.0f;
 float ball_size=12.0f;
 
-Texture2D ball_sprite;
+static Texture2D ball_sprite;
 
 void UpdateBall(){
     // Move the ball

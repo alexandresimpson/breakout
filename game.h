@@ -11,6 +11,7 @@ enum GameState {
     END
 };
 
+void SetupGame();
 int GetLives();
 void LoseLife();
 void DrawGame();
