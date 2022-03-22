@@ -34,5 +34,5 @@ void DrawPaddle(){
     DrawRectangle(paddle_x, paddle_y,paddle_width,paddle_height,RED);
 }
 Rectangle GetPaddleRec(){
-    return {paddle_x,paddle_y,paddle_width,paddle_height};
+    return {(float)paddle_x, (float)paddle_y, (float)paddle_width, (float)paddle_height};
 }
