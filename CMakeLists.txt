@@ -11,5 +11,10 @@ FetchContent_Declare(
 )
 FetchContent_MakeAvailable(raylib)
 
-add_executable(breakout main.cpp paddle.cpp ball.cpp ball.h window.h game.h game.cpp)
+add_custom_target(copy_assets
+        COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_CURRENT_LIST_DIR}/assets ${CMAKE_CURRENT_BINARY_DIR}/assets
+        )
+
+add_executable(breakout main.cpp paddle.cpp ball.cpp ball.h window.h game.h game.cpp asset_loader.h asset_loader.cpp play_area.cpp)
 target_link_libraries(breakout raylib)
+add_dependencies(${PROJECT_NAME} copy_assets)

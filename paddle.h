@@ -7,6 +7,9 @@
 #include "raylib.h"
 
 Rectangle GetPaddleRec();
+
+void SetupPaddle();
+
 void UpdatePaddle();
 void DrawPaddle();
 

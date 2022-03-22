@@ -7,6 +7,9 @@
 
 void CheckWallCollision();
 void CheckPaddleCollision();
+
+void SetupBall();
+
 void UpdateBall();
 void DrawBall();
 void ResetBall();
