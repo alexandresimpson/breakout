@@ -22,6 +22,8 @@ class Block {
   int x_;
   int y_;
   Texture2D texture_;
+
+  bool is_destroyed;
 };
 
 #endif //BREAKOUT__BLOCK_H_

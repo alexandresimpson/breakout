@@ -7,10 +7,15 @@
 
 void CheckWallCollision();
 void CheckPaddleCollision();
+void CheckBlockCollision();
 
 void SetupBall();
 
 void UpdateBall();
 void DrawBall();
 void ResetBall();
+
+Vector2 GetBallPosition();
+float GetBallSize();
+
 #endif //BREAKOUT_BALL_H

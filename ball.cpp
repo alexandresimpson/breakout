@@ -8,6 +8,7 @@
 #include "game.h"
 #include "asset_loader.h"
 #include "play_area.h"
+#include "block.h"
 
 int ball_x=512;
 int ball_y=384;
@@ -26,19 +27,20 @@ void UpdateBall(){
     // Check for if/what the ball hit
     CheckWallCollision();
     CheckPaddleCollision();
+    CheckBlockCollision();
 
 }
 void DrawBall(){
 //    DrawCircle( ball_x,ball_y,7.5f, WHITE);
-  DrawTexture(ball_sprite, ball_x, ball_y, WHITE);
+  DrawTexture(ball_sprite, (int)ball_x - ball_size, (int)ball_y - ball_size, WHITE);
 }
 
 void CheckWallCollision(){
-    if(ball_x <= GetLeftBoundary() || ball_x >= GetRightBoundary()-(ball_size*2) ){
+    if(ball_x - ball_size <= GetLeftBoundary() || ball_x+ball_size >= GetRightBoundary() ){
         x_dir*=-1;
 //        y_dir*=-1;
     }
-    if(ball_y <= GetTopBoundary() ){
+    if(ball_y - ball_size <= GetTopBoundary() ){
 //        x_dir*=-1;
         y_dir*=-1;
     }
@@ -69,4 +71,24 @@ void ResetBall(){
 
 void SetupBall() {
   ball_sprite = GetSpriteTexture({158.0f, 240.0f, 24.0f, 24.0f});
+}
+
+Vector2 GetBallPosition() {
+  return (Vector2) {(float)ball_x, (float)ball_y};
+}
+
+float GetBallSize() {
+  return ball_size;
+}
+
+void CheckBlockCollision() {
+  auto blocks = GetActiveBlocks();
+
+  for(auto const& b : blocks) {
+    if (CheckCollisionCircleRec(GetBallPosition(),
+                                GetBallSize() * 2,
+                                (Rectangle) {(float) b->x_, (float) b->y_, 32.0f, 32.0f})) {
+      y_dir*=-1;
+    }
+  }
 }

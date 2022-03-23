@@ -65,6 +65,7 @@ void UpdateGame(){
     }
 
   if(GetState()==PLAY) {
+    UpdatePlayArea();
     UpdatePaddle();
     UpdateBall();
   }
